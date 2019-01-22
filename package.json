@@ -33,6 +33,7 @@
     "prop-types": "^15.5.10"
   },
   "dependencies": {
-    "itypeof": "^1.1.2"
+    "itypeof": "^1.1.2",
+    "react-native-vector-icons": "^6.2.0"
   }
 }

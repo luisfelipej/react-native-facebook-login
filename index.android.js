@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Icon from 'react-native-vector-icons/Ionicons'
 
 import {
   View,
@@ -7,6 +8,7 @@ import {
   StyleSheet,
   NativeModules,
   TouchableHighlight,
+  Image
 } from 'react-native';
 
 import itypeof from 'itypeof';
@@ -15,19 +17,27 @@ const FBLoginManager = NativeModules.MFBLoginManager;
 
 const styles = StyleSheet.create({
   login: {
-    flex: 1,
-    backgroundColor: '#3B5998',
-    padding: 10,
-    alignItems: 'center'
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    padding: 20,
+    borderRadius: 2,
+    width: 300,
+    backgroundColor: '#4265b7',
   },
   whiteFont: {
     color: 'white'
-  }
+  },
+  divider: {
+    borderRightWidth: 10,
+    borderRightColor: '#fff',
+    marginHorizontal: 20
+}
 });
 
 const statics = {
-  loginText: 'Login with Facebook',
-  logoutText: 'Logout from Facebook'
+  loginText: 'Inicia sesión con Facebook',
+  logoutText: 'Cerrar sesión de Facebook'
 };
 
 class FBLogin extends Component {
@@ -146,6 +156,8 @@ class FBLogin extends Component {
       ? this.props.buttonView
       : (
         <View style={[styles.login, this.props.style]}>
+          <Icon name="logo-facebook" size={32} />
+          <View style={styles.divider}/>
           <Text style={[styles.whiteFont, this.fontStyle]}> {buttonText} </Text>
         </View>
       );
